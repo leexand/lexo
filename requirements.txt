@@ -4,3 +4,4 @@ motor
 redis
 aiohttp
 requests
+Pillow
