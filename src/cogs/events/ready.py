@@ -11,6 +11,12 @@ class Ready(commands.Cog):
 
     async def on_startup(self):
         await self.bot.wait_until_ready() # esperar a que el bot esté listo
+        await self.bot.change_presence(
+        activity=discord.Activity(
+            type=discord.ActivityType.watching,
+            name='a InterWorld formarse'
+        )
+)
 
         channel = self.bot.get_channel(int(os.getenv('START_CHANNEL_ID')))
         if not channel:
