@@ -41,7 +41,7 @@ class Setup(commands.Cog):
         await ctx.reply(embed=discord.Embed(
             description='✅ Panel de verificación configurado.',
             color=0xffffff
-        ), ephemeral=True)
+        ))
 
 # ─── Botón de verificación ────────────────────────────────────────────────────
 class VerifyButton(discord.ui.View):
