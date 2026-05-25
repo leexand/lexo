@@ -38,10 +38,15 @@ class Setup(commands.Cog):
         embed.set_footer(text='lexoStudio — Sistema de verificación')
 
         await channel.send(embed=embed, view=VerifyButton())
-        await ctx.reply(embed=discord.Embed(
+
+        # usar send en lugar de reply — el purge puede haber eliminado el mensaje
+        # original del comando, haciendo que reply falle con "Unknown message"
+        msg = await ctx.send(embed=discord.Embed(
             description='✅ Panel de verificación configurado.',
             color=0xffffff
         ))
+        # auto-eliminar la confirmación después de 5 segundos
+        await msg.delete(delay=5)
 
 # ─── Botón de verificación ────────────────────────────────────────────────────
 class VerifyButton(discord.ui.View):
